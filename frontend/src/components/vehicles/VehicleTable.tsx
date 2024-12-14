@@ -31,7 +31,7 @@ export const VehicleTable: React.FC<VehicleTableProps> = ({ vehicles, onStatusUp
             <th className="border border-gray-300 px-4 py-2">Name</th>
             <th className="border border-gray-300 px-4 py-2">Status</th>
             <th className="border border-gray-300 px-4 py-2">Last Updated</th>
-            <th className="border border-gray-300 px-4 py-2">Actions</th>
+           
           </tr>
         </thead>
         <tbody>
@@ -54,14 +54,7 @@ export const VehicleTable: React.FC<VehicleTableProps> = ({ vehicles, onStatusUp
               <td className="border border-gray-300 px-4 py-2">
                 {formatDate(vehicle.lastUpdated)}
               </td>
-              <td className="border border-gray-300 px-4 py-2">
-                <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                  onClick={() => onStatusUpdate(vehicle._id, vehicle.status)}
-                >
-                  Update
-                </button>
-              </td>
+              
             </tr>
           ))}
         </tbody>
