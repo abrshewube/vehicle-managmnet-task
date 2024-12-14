@@ -35,7 +35,7 @@ cd frontend
 npm install
 npm run dev
 ```
-This will start the frontend server. Open your browser and navigate to the URL displayed in the terminal (usually `http://localhost:5173`).
+This will start the frontend server. Open your browser and navigate to the URL displayed in the terminal (usually `http://localhost:3000`).
 
 ### 3. Backend Setup
 Navigate to the backend directory and set up the Node.js server:
@@ -60,6 +60,20 @@ The backend server will run on `http://localhost:5000`.
 
 ---
 
+## Screenshots
+Below are screenshots demonstrating the system in action:
+
+1. **Image 1:**
+   ![Image 1](./screenshots/image1.png)
+
+2. **Image2:**
+   ![Image 2](./screenshots/vehicle-list.png)
+
+3. **Image 3:**
+   ![Backend Running](./screenshots/backend-running.png)
+
+---
+
 ## Important Notes
 - Ensure that MongoDB is running before starting the backend server.
 - The frontend and backend servers should run simultaneously for the application to function correctly.
@@ -70,6 +84,6 @@ The backend server will run on `http://localhost:5000`.
 If you encounter any issues:
 1. Verify that Node.js and MongoDB are installed and running.
 2. Check that all dependencies are installed by running `npm install` in both `frontend` and `backend` directories.
-3. Ensure no other application is using ports `5173` (frontend) or `5000` (backend).
+3. Ensure no other application is using ports `3000` (frontend) or `5000` (backend).
 
 ---
