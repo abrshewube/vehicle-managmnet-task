@@ -1,5 +1,5 @@
 // Application constants
-export const API_BASE_URL = 'http://localhost:5000/api';
+export const API_BASE_URL = 'https://vehicle-backend-api.onrender.com/api';
 
 export const VEHICLE_STATUS_COLORS = {
   'Available': 'bg-green-100 text-green-800',
