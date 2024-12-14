@@ -1,4 +1,6 @@
-// Vehicle related type definitions
+// Vehicle-related type definitions
+export type VehicleStatus = 'Available' | 'In Use' | 'In Maintenance';
+
 export interface Vehicle {
   _id: string;
   name: string;
@@ -6,4 +8,12 @@ export interface Vehicle {
   lastUpdated: string;
 }
 
-export type VehicleStatus = 'Available' | 'In Use' | 'In Maintenance';
+export interface CreateVehicleDto {
+  name: string;
+  status: VehicleStatus;
+}
+
+export interface UpdateVehicleStatusDto {
+  vehicleId: string;
+  status: VehicleStatus;
+}

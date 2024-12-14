@@ -1,44 +1,45 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { vehicleService } from '../services/api';
-import type {  VehicleStatus } from '../types/vehicle';
-import toast from 'react-hot-toast';
+// Vehicle-related React Query hooks
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { vehiclesApi } from '../api/vehicles';
+import { CreateVehicleDto, UpdateVehicleStatusDto } from '../types/vehicle';
+import { showToast } from '../lib/toast';
 
-export function useVehicles() {
+export const useVehicles = () => {
   const queryClient = useQueryClient();
 
-  const vehiclesQuery = useQuery({
+  const { data: vehicles = [], isLoading, error } = useQuery({
     queryKey: ['vehicles'],
-    queryFn: vehicleService.getAllVehicles,
+    queryFn: vehiclesApi.getAll,
+   
   });
 
-  const addVehicleMutation = useMutation({
-    mutationFn: vehicleService.addVehicle,
+  const createVehicle = useMutation({
+    mutationFn: (newVehicle: CreateVehicleDto) => vehiclesApi.create(newVehicle),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['vehicles'] });
-      toast.success('Vehicle added successfully');
+      showToast.success('Vehicle created successfully');
     },
-    onError: () => {
-      toast.error('Failed to add vehicle');
+    onError: (error: Error) => {
+      showToast.error(`Failed to create vehicle: ${error.message}`);
     },
   });
 
-  const updateStatusMutation = useMutation({
-    mutationFn: ({ vehicleId, status }: { vehicleId: string; status: VehicleStatus }) =>
-      vehicleService.updateVehicleStatus(vehicleId, status),
+  const updateVehicleStatus = useMutation({
+    mutationFn: (updateDto: UpdateVehicleStatusDto) => vehiclesApi.updateStatus(updateDto),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['vehicles'] });
-      toast.success('Status updated successfully');
+      showToast.success('Vehicle status updated successfully');
     },
-    onError: () => {
-      toast.error('Failed to update status');
+    onError: (error: Error) => {
+      showToast.error(`Failed to update vehicle status: ${error.message}`);
     },
   });
 
   return {
-    vehicles: vehiclesQuery.data ?? [],
-    isLoading: vehiclesQuery.isLoading,
-    error: vehiclesQuery.error,
-    addVehicle: addVehicleMutation.mutate,
-    updateStatus: updateStatusMutation.mutate,
+    vehicles,
+    isLoading,
+    error,
+    createVehicle,
+    updateVehicleStatus,
   };
-}
+};
