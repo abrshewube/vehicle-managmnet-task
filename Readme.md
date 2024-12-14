@@ -16,7 +16,7 @@ A simple Vehicle Management System built using the MERN stack (MongoDB, Express.
 Before you begin, ensure you have the following installed on your machine:
 
 1. **Node.js** (latest LTS version recommended)
-2. **MongoDB** (running locally)
+2. **MongoDB** (running locally or using a cloud service like MongoDB Atlas)
 
 ---
 
@@ -24,8 +24,8 @@ Before you begin, ensure you have the following installed on your machine:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/abrshewube/vehicle-managmnet-task
+cd vehicle-managmnet-task
 ```
 
 ### 2. Frontend Setup
@@ -73,5 +73,3 @@ If you encounter any issues:
 3. Ensure no other application is using ports `5173` (frontend) or `5000` (backend).
 
 ---
-
-
