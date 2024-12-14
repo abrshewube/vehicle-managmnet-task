@@ -67,10 +67,8 @@ Below are screenshots demonstrating the system in action:
    ![Image 1](./screenshots/image1.png)
 
 2. **Image2:**
-   ![Image 2](./screenshots/vehicle-list.png)
+   ![Image 2](./screenshots/image2.png)
 
-3. **Image 3:**
-   ![Backend Running](./screenshots/backend-running.png)
 
 ---
 
