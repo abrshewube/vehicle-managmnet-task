@@ -16,7 +16,7 @@ A simple Vehicle Management System built using the MERN stack (MongoDB, Express.
 Before you begin, ensure you have the following installed on your machine:
 
 1. **Node.js** (latest LTS version recommended)
-2. **MongoDB** (running locally or using a cloud service like MongoDB Atlas)
+2. **MongoDB** (running locally )
 
 ---
 
